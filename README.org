@@ -11,7 +11,6 @@ SMX, GPU负责将这些block分配到SM，所有SM独立并行的执行。一个
 + thread 
 + block
 + grid
-
 [[./img/smx.png]]
 
 ** task 
