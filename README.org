@@ -1,0 +1,40 @@
+* cuda notes
+
+** structure
+*** cpu vs gpu
+1. cpu bigger cache, branch predict
+2. gpu multiple ALU
+[[./img/gpu-cpu.png]]
+
+*** cuda conception
+SMX, GPU负责将这些block分配到SM，所有SM独立并行的执行
++ thread 
++ block
++ grid
+
+** task 
++ map 1-1
++ gather N-1, e.g sum, average 
++ scatter 1-N
++ transpose
+some arithmetic: reduce scan historgram
+
+
+** memory
++ host(cpu) memory | device(gpu) memory
++ local > shared > global
++ coalesced > strided > random(连续 > 固定步长 > 随机)
+
+
+** program efficiency
++ expand concurrency 增大并发
++ reduce access memory 减少访存
+
+
+** program details
+
+1. if(tid < N) 存储保护
+2. __device__
+3. __shared__
+
+
