@@ -7,10 +7,12 @@
 [[./img/gpu-cpu.png]]
 
 *** cuda conception
-SMX, GPU负责将这些block分配到SM，所有SM独立并行的执行
+SMX, GPU负责将这些block分配到SM，所有SM独立并行的执行。一个block内的所有threads会在同一处理器内核上共享内存资源，所以block内有多少threads是有限制的。目前GPU限制每个 block最多有1024个threads。
 + thread 
 + block
 + grid
+
+[[./img/smx.png][smx-block]]
 
 ** task 
 + map 1-1
