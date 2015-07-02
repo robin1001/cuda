@@ -12,7 +12,7 @@ SMX, GPU负责将这些block分配到SM，所有SM独立并行的执行。一个
 + block
 + grid
 
-[[./img/smx.png][smx-block]]
+[[./img/smx.png]]
 
 ** task 
 + map 1-1
@@ -31,6 +31,17 @@ some arithmetic: reduce scan historgram
 ** program efficiency
 + expand concurrency 增大并发
 + reduce access memory 减少访存
+
+** program pattern
+从执行角度看，程序经过了以下步骤：
+1. initialises card
+2. allocates memory in host and on device
+3. copies data from host to device memory
+4. launches multiple instances of execution “kernel” on device
+5. copies data from device memory to host
+6. repeats 3-5 as needed
+7. de-allocates all memory and terminates
+总结：每个kernel放在一个grid上执行，1个kernel有多个instance，每个instance在一个block上执行，每个block只能在一个SM上执行，如果block数>SM数，多个block抢SM用。kernel的一个instance在SMX上通过一组进程来执行。
 
 
 ** program details
