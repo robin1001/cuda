@@ -47,6 +47,7 @@ some arithmetic: reduce scan historgram
 
 1. if(tid < N) 存储保护
 2. __device__
-3. __shared__
+3. __syncthreads(), 线程同步, a[i] = a[i-1] assign.cu
+4. __shared__ memory, 数组求和使用 sum.cu
 
 
