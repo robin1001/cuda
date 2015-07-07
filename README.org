@@ -50,4 +50,8 @@ some arithmetic: reduce scan historgram
 3. __syncthreads(), 线程同步, a[i] = a[i-1] assign.cu
 4. __shared__ memory, 数组求和使用 sum.cu
 
-
+#+BEGIN_EXAMPLE
+The CUDA model uses huge numbers of threads to hide memory latency (the time it takes for a memory request to
+come back). Typically, latency to the global memory (DRAM) is around 400–600 cycles. During
+this time the GPU is busy doing other tasks, rather than idly waiting for the memory fetch to complete.
+#+END_EXAMPLE
